@@ -1,0 +1,923 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CHANCHAL CHEMIST & DRUGGIST (CCD)</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7fbff;
+    color:#17324d;
+}
+
+/* TOP BAR */
+.topbar{
+    background:linear-gradient(90deg,#063b66,#0786d9);
+    color:white;
+    text-align:center;
+    padding:10px;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* NAVBAR */
+nav{
+    background:white;
+    padding:16px 7%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 5px 25px rgba(0,0,0,.08);
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:48px;
+    height:48px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#087bd1,#15bba7);
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:26px;
+    font-weight:bold;
+}
+
+.logo h3{
+    color:#063b66;
+    font-size:16px;
+}
+
+.logo span{
+    color:#0786d9;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:28px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    color:#36566e;
+    font-weight:bold;
+    font-size:14px;
+}
+
+nav ul li a:hover{
+    color:#0786d9;
+}
+
+/* HERO */
+.hero{
+    min-height:650px;
+    padding:70px 7%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    gap:45px;
+    background:
+    radial-gradient(circle at 90% 10%,#dff7ff,transparent 30%),
+    linear-gradient(135deg,#f9fdff,#eefaff);
+}
+
+.badge{
+    display:inline-block;
+    padding:9px 16px;
+    background:#e4f8f4;
+    color:#087e73;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-size:clamp(38px,5vw,65px);
+    line-height:1.05;
+    color:#063b66;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#087bd1;
+}
+
+.hero p{
+    color:#61798d;
+    font-size:18px;
+    line-height:1.7;
+    max-width:650px;
+}
+
+.rating{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-top:24px;
+    flex-wrap:wrap;
+}
+
+.rating-box{
+    background:#16a064;
+    color:white;
+    padding:7px 12px;
+    border-radius:9px;
+    font-weight:bold;
+}
+
+.verified{
+    color:#1678c8;
+    font-weight:bold;
+}
+
+.buttons{
+    display:flex;
+    gap:14px;
+    margin-top:28px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:14px 22px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    display:inline-block;
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#087bd1,#10a9db);
+    color:white;
+    box-shadow:0 12px 25px rgba(8,123,209,.25);
+}
+
+.btn-secondary{
+    background:white;
+    color:#063b66;
+    border:1px solid #d7e6f0;
+}
+
+/* HERO IMAGE AREA */
+.hero-images{
+    position:relative;
+    height:470px;
+}
+
+.image-main{
+    position:absolute;
+    right:0;
+    top:0;
+    width:88%;
+    height:360px;
+    border-radius:30px;
+    overflow:hidden;
+    box-shadow:0 25px 60px rgba(4,61,100,.18);
+    border:8px solid white;
+}
+
+.image-main img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.image-small{
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:48%;
+    height:190px;
+    border-radius:25px;
+    overflow:hidden;
+    border:7px solid white;
+    box-shadow:0 20px 45px rgba(4,61,100,.18);
+}
+
+.image-small img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* SECTION */
+section{
+    padding:80px 7%;
+}
+
+.container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.small-title{
+    color:#087bd1;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    font-size:13px;
+}
+
+.section-title h2{
+    font-size:38px;
+    color:#063b66;
+    margin:10px 0;
+}
+
+.section-title p{
+    max-width:700px;
+    margin:auto;
+    color:#698196;
+    line-height:1.7;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:22px;
+    border:1px solid #e1edf5;
+    box-shadow:0 15px 35px rgba(15,76,112,.07);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    box-shadow:0 20px 40px rgba(15,76,112,.13);
+}
+
+.icon{
+    width:58px;
+    height:58px;
+    border-radius:17px;
+    background:#e7f6ff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:29px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    color:#063b66;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#698196;
+    line-height:1.6;
+}
+
+/* BUSINESS INFO */
+.info-section{
+    background:white;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:25px;
+}
+
+.info-card{
+    padding:32px;
+    border-radius:25px;
+    background:linear-gradient(145deg,#f0f9ff,#ffffff);
+    border:1px solid #dcecf6;
+}
+
+.info-row{
+    padding:17px 0;
+    border-bottom:1px solid #dce7ef;
+}
+
+.info-row:last-child{
+    border-bottom:none;
+}
+
+.label{
+    color:#7990a2;
+    font-size:12px;
+    font-weight:bold;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.value{
+    color:#063b66;
+    font-weight:bold;
+    margin-top:6px;
+    line-height:1.5;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:1.2fr .8fr;
+    gap:22px;
+}
+
+.gallery img{
+    width:100%;
+    height:320px;
+    object-fit:cover;
+    border-radius:25px;
+    display:block;
+    box-shadow:0 15px 40px rgba(0,0,0,.10);
+}
+
+.gallery .small-gallery img{
+    height:320px;
+}
+
+/* FOOTER */
+footer{
+    background:#063451;
+    color:white;
+    padding:50px 7%;
+}
+
+.footer-content{
+    max-width:1150px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+footer h2{
+    margin-bottom:12px;
+}
+
+footer p{
+    color:#b9cedc;
+    line-height:1.7;
+}
+
+.copyright{
+    text-align:center;
+    margin-top:35px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.15);
+    color:#9fb9c9;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:850px){
+
+    nav ul{
+        display:none;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        padding-top:50px;
+    }
+
+    .hero-images{
+        height:420px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .gallery img,
+    .gallery .small-gallery img{
+        height:280px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+<div class="topbar">
+    CHANCHAL CHEMIST & DRUGGIST (CCD) • Talab Tillo, Jammu • Open Now until 10:00 PM
+</div>
+
+<!-- NAVIGATION -->
+<nav>
+
+    <div class="logo">
+        <div class="logo-icon">✚</div>
+
+        <div>
+            <h3>
+                CHANCHAL CHEMIST & DRUGGIST
+                <span>(CCD)</span>
+            </h3>
+        </div>
+    </div>
+
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Details</a></li>
+    </ul>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+    <div>
+
+        <div class="badge">
+            ✓ Trust Verified • Healthcare
+        </div>
+
+        <h1>
+            CHANCHAL
+            <span>CHEMIST & DRUGGIST</span>
+        </h1>
+
+        <p>
+            <b>(CCD)</b> — Skin Care Clinic
+            <b>Dr Neeti Behli MBBS MD Dermatologist</b>
+        </p>
+
+        <div class="rating">
+
+            <div class="rating-box">
+                ★ 4.3
+            </div>
+
+            <b>34 ratings</b>
+
+            <span class="verified">
+                ✓ Verified
+            </span>
+
+        </div>
+
+        <div class="buttons">
+
+            <a href="#about" class="btn btn-primary">
+                Explore Details
+            </a>
+
+            <a href="#contact" class="btn btn-secondary">
+                View Location
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- PICTURES -->
+    <div class="hero-images">
+
+        <div class="image-main">
+            <img
+            src="https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=1000&q=85"
+            alt="Healthcare">
+        </div>
+
+        <div class="image-small">
+            <img
+            src="https://images.unsplash.com/photo-1580281657527-47f249e8f4df?auto=format&fit=crop&w=700&q=85"
+            alt="Medical care">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="small-title">
+            About The Business
+        </div>
+
+        <h2>
+            Healthcare & Skin Care
+        </h2>
+
+        <p>
+            CHANCHAL CHEMIST & DRUGGIST (CCD) is listed in
+            Talab Tillo, Jammu, with a Skin Care Clinic
+            associated with Dr Neeti Behli MBBS MD Dermatologist.
+        </p>
+
+    </div>
+
+
+    <div class="info-grid">
+
+        <div class="info-card">
+
+            <div class="info-row">
+
+                <div class="label">
+                    Business Name
+                </div>
+
+                <div class="value">
+                    CHANCHAL CHEMIST & DRUGGIST (CCD)
+                </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <div class="label">
+                    Clinic
+                </div>
+
+                <div class="value">
+                    Skin Care Clinic Dr Neeti Behli MBBS MD Dermatologist
+                </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <div class="label">
+                    Category
+                </div>
+
+                <div class="value">
+                    General Physician Doctors
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="info-card">
+
+            <div class="info-row">
+
+                <div class="label">
+                    Location
+                </div>
+
+                <div class="value">
+                    Talab Tillo, Jammu
+                </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <div class="label">
+                    Healthcare Experience
+                </div>
+
+                <div class="value">
+                    4 Years in Healthcare
+                </div>
+
+            </div>
+
+
+            <div class="info-row">
+
+                <div class="label">
+                    Opening Status
+                </div>
+
+                <div class="value">
+                    Open Now • until 10:00 PM
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" style="background:#f1f8fc;">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="small-title">
+            Speciality
+        </div>
+
+        <h2>
+            Healthcare Services
+        </h2>
+
+        <p>
+            Information displayed on this demo is based only
+            on the provided business listing.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">
+                💊
+            </div>
+
+            <h3>
+                Chemist & Druggist
+            </h3>
+
+            <p>
+                CHANCHAL CHEMIST & DRUGGIST (CCD)
+                healthcare business.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ✨
+            </div>
+
+            <h3>
+                Skin Care Clinic
+            </h3>
+
+            <p>
+                Skin Care Clinic associated with
+                Dr Neeti Behli MBBS MD Dermatologist.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🩺
+            </div>
+
+            <h3>
+                General Physician Doctors
+            </h3>
+
+            <p>
+                Listed under the General Physician
+                Doctors category.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- GALLERY -->
+<section id="gallery">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="small-title">
+            Gallery
+        </div>
+
+        <h2>
+            Professional Healthcare Presence
+        </h2>
+
+        <p>
+            A clean and modern visual presentation
+            designed for the business website.
+        </p>
+
+    </div>
+
+
+    <div class="gallery">
+
+        <img
+        src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=1000&q=85"
+        alt="Pharmacy">
+
+        <div class="small-gallery">
+
+            <img
+            src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=85"
+            alt="Healthcare clinic">
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT / DETAILS -->
+<section id="contact" class="info-section">
+
+<div class="container">
+
+    <div class="section-title">
+
+        <div class="small-title">
+            Business Details
+        </div>
+
+        <h2>
+            CHANCHAL CHEMIST & DRUGGIST
+        </h2>
+
+        <p>
+            The following information is displayed exactly
+            from the provided listing.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="icon">
+                📍
+            </div>
+
+            <h3>
+                Location
+            </h3>
+
+            <p>
+                Talab Tillo, Jammu
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                🕙
+            </div>
+
+            <h3>
+                Opening Status
+            </h3>
+
+            <p>
+                Open Now until 10:00 PM
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <div class="icon">
+                ⭐
+            </div>
+
+            <h3>
+                Customer Rating
+            </h3>
+
+            <p>
+                4.3 ★ • 34 ratings
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-content">
+
+    <div>
+
+        <h2>
+            CHANCHAL CHEMIST & DRUGGIST (CCD)
+        </h2>
+
+        <p>
+            Skin Care Clinic Dr Neeti Behli
+            MBBS MD Dermatologist
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Location
+        </h3>
+
+        <p>
+            Talab Tillo, Jammu
+        </p>
+
+    </div>
+
+
+    <div>
+
+        <h3>
+            Status
+        </h3>
+
+        <p>
+            Open Now • until 10:00 PM
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="copyright">
+
+    Professional Website Demo • CHANCHAL CHEMIST & DRUGGIST (CCD)
+
+</div>
+
+</footer>
+
+</body>
+</html>
